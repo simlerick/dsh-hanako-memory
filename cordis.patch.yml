@@ -1,0 +1,11 @@
+# dsh-hanako-memory bundle patch.
+#
+# 一行 insert 挂载 Host 半身；浏览器半身由 package.json 的 dsh.client 声明，
+# 并绑定在 name 为裸包名的这一行上（子路径行不会携带半身）。
+#
+# host 半身必须挂在**全局层**（不能挂 per-preset）：它要注册 webServer 路由
+# 与全局工具，per-preset 挂载拿不到这些能力。
+- insert:
+    - id: hanako-memory
+      name: 'dsh-hanako-memory'
+      config: {}
